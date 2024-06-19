@@ -2,17 +2,20 @@ import streamlit as st
 
 def main():
     st.title('Dashboard Links')
-    
+
     # Define your dashboard links and corresponding names
     dashboard_links = {
-        'Survey Dashboard': 'https://survey-dash1-7kv2sru2jx36mk3qrwdr2d.streamlit.app/',
-        'App Card Dashboard': 'https://app-card-dash-gfrsvbpbw67oqz8man8phw.streamlit.app/'
+        'Dashboard 1': 'http://yourdashboard1link.com',
+        'Dashboard 2': 'http://yourdashboard2link.com',
+        'Dashboard 3': 'http://yourdashboard3link.com'
     }
-    
-    # Display each dashboard link as a button or a tile
-    for name, link in dashboard_links.items():
-        st.markdown(f"## {name}")
-        st.markdown(f"[Open {name}]({link})")
+
+    # Create a beta_container for the tiles
+    with st.beta_container():
+        # Iterate over dashboard links to create tiles
+        for name, link in dashboard_links.items():
+            with st.beta_expander(f'{name}', expanded=False):
+                st.markdown(f"[Open {name}]({link})")
 
 if __name__ == '__main__':
     main()
